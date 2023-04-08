@@ -20,34 +20,39 @@ if (process.argv.length < 3) {
 
 const [, , ...packagesWithVersion] = process.argv
 
-packagesWithVersion.forEach(packageWithVersion => {
-  const { name: dependency, version: newVersion } = parse(packageWithVersion)
+const workspacesGlob = packageJson.workspaces
 
-  const workspacesGlob = packageJson.workspaces
+if (!workspacesGlob) {
+  console.error('No workspaces found in package.json')
+  process.exit(1)
+}
 
-  if (!workspacesGlob) {
-    console.error('No workspaces found in package.json')
-    process.exit(1)
-  }
+workspacesGlob.forEach(pattern => {
+  glob.sync(pattern).forEach(workspacePath => {
+    const packageJsonPath = path.join(workspacePath, 'package.json')
+    const packageJsonContent = require(`${cwd}/${packageJsonPath}`)
 
-  workspacesGlob.forEach(pattern => {
-    glob.sync(pattern).forEach(workspacePath => {
-      const packageJsonPath = path.join(workspacePath, 'package.json')
-      const packageJsonContent = require(`${cwd}/${packageJsonPath}`)
-
-      if (
-        (packageJsonContent.dependencies && packageJsonContent.dependencies[dependency]) ||
-        (packageJsonContent.devDependencies && packageJsonContent.devDependencies[dependency])
-      ) {
-        const saveOption =
-          packageJsonContent.dependencies && packageJsonContent.dependencies[dependency]
-            ? '--save'
-            : '--save-dev'
-        execSync(`npm install "${dependency}@${newVersion}" ${saveOption}`, {
-          cwd: workspacePath,
-          stdio: 'inherit',
-        })
-      }
+    const dependencies = packagesWithVersion.filter(packageWithVersion => {
+      const { name } = parse(packageWithVersion)
+      return packageJsonContent.dependencies && packageJsonContent.dependencies[name]
     })
+
+    const devDependencies = packagesWithVersion.filter(packageWithVersion => {
+      const { name } = parse(packageWithVersion)
+      return packageJsonContent.devDependencies && packageJsonContent.devDependencies[name]
+    })
+
+    if (dependencies.length > 0) {
+      execSync(`npm i -S ${dependencies.join(' ')}`, {
+        cwd: workspacePath,
+        stdio: 'inherit',
+      })
+    }
+    if (devDependencies.length > 0) {
+      execSync(`npm i -D ${devDependencies.join(' ')}`, {
+        cwd: workspacePath,
+        stdio: 'inherit',
+      })
+    }
   })
 })
