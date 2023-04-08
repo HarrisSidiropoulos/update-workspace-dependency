@@ -1,4 +1,4 @@
-# Update Dependency
+# Update Workspace Dependency
 
 A command-line utility to update a specified dependency or devDependency across all workspaces in an npm monorepo.
 
