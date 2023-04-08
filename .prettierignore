@@ -1,0 +1,5 @@
+# >>> domelint-start
+# this block was auto-generated with do-me-lint
+.npm
+.eslintcache
+# <<< domelint-end
