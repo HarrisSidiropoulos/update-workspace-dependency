@@ -17,7 +17,20 @@ if (process.argv.length !== 3) {
   process.exit(1)
 }
 
-const [dependency, newVersion] = process.argv[2].split('@')
+const [, , packageWithVersion] = process.argv
+const atIndex = packageWithVersion.lastIndexOf('@')
+
+let dependency = ''
+let newVersion = ''
+
+// If the @ character is not found or is the first character, return the package name and the latest version
+if (atIndex === -1 || atIndex === 0) {
+  dependency = packageWithVersion
+  newVersion = 'latest'
+} else {
+  dependency = packageWithVersion.slice(0, atIndex)
+  newVersion = packageWithVersion.slice(atIndex + 1)
+}
 
 if (!dependency || !newVersion) {
   console.error('Invalid argument format. Use <dependency@new-version>')
