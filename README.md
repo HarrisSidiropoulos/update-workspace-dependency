@@ -14,6 +14,12 @@ To update a dependency or devDependency across all workspaces, run the following
 npx update-workspace-dependency [<package-name@new-version> ...]
 ```
 
+e.g.
+
+```bash
+npx update-workspace-dependency react react-dom
+```
+
 Replace package-name@new-version with the name of the dependency and the desired version separated by the @ character.
 
 The script will update the specified dependency in each workspace, regardless of whether it is a dependency or a devDependency. If the dependency is not present in a workspace, it will not be added.
