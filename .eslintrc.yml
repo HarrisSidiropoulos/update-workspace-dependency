@@ -61,7 +61,7 @@ rules:
   import/no-absolute-path: error
   import/no-anonymous-default-export: error
   import/no-default-export: error
-  import/no-dynamic-require: error
+  import/no-dynamic-require: valid
   import/no-extraneous-dependencies: error
   import/no-mutable-exports: error
   import/no-named-as-default: error

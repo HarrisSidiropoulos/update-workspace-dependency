@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-disable import/no-dynamic-require */
 const path = require('path')
 const { execSync } = require('child_process')
 const glob = require('glob')
