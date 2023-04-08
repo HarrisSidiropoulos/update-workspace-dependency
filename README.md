@@ -11,7 +11,7 @@ This script requires Node.js and npm to be installed.
 To update a dependency or devDependency across all workspaces, run the following command:
 
 ```bash
-npx update-workspace-dependency package-name@new-version
+npx update-workspace-dependency [<package-name@new-version> ...]
 ```
 
 Replace package-name@new-version with the name of the dependency and the desired version separated by the @ character.

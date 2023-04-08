@@ -1,6 +1,6 @@
 {
   "name": "update-workspace-dependency",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A command-line utility to update a specified dependency or devDependency across all workspaces in an npm monorepo.",
   "main": "index.js",
   "bin": {
@@ -19,12 +19,16 @@
     "dependency",
     "update"
   ],
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HarrisSidiropoulos/update-workspace-dependency.git"
   },
   "dependencies": {
-    "glob": "^9.3.4"
+    "glob": "^9.3.4",
+    "parse-package-name": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^8.38.0",
