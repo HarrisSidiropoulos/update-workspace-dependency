@@ -46,7 +46,7 @@ jobs:
           # Explicitly unset token-based auth to force OIDC Trusted Publishing
           NODE_AUTH_TOKEN: ''
           NPM_TOKEN: ''
-        run: npx semantic-release
+        run: npm publish --access public
 
       - name: Verify npm publish via OIDC
         if: failure()
