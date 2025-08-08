@@ -28,7 +28,6 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
-          always-auth: true
 
       - name: Use latest npm
         run: |
@@ -43,9 +42,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
-        run: npm publish
+          # Explicitly unset token-based auth to force OIDC Trusted Publishing
+          NODE_AUTH_TOKEN: ''
+          NPM_TOKEN: ''
+        run: npx semantic-release
 
       - name: Verify npm publish via OIDC
         if: failure()
         run: |
-          echo "If publish failed, ensure this repo is configured as an npm Trusted Publisher (OIDC) and package name is claimed."
+          echo "If publish failed, ensure this repo is configured as an npm Trusted Publisher (OIDC) and the package name is owned or pre-authorized."
