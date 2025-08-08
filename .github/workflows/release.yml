@@ -40,23 +40,6 @@ jobs:
           npm i -g npm@latest
           npm -v
 
-      - name: Check if running on GitHub-hosted runner
-        run: |
-          if [ -z "$RUNNER_TRACKING_ID" ]; then
-            echo "Running on self-hosted runner"
-            exit 1
-          else
-            echo "Running on GitHub-hosted runner"
-          fi
-
-      - name: Request OIDC token
-        id: get-oidc-token
-        run: |
-          echo "TOKEN=$(curl -H 'Authorization: Bearer ${{ steps.get-oidc-token.outputs.token }}' https://token.actions.githubusercontent.com)" >> $GITHUB_ENV
-
-      - name: Print token (debug only, remove later)
-        run: echo ${{ steps.get-oidc-token.outputs.token.NODE_AUTH_TOKEN }}
-
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
