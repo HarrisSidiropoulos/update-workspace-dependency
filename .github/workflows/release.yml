@@ -30,6 +30,12 @@ jobs:
           cache: 'npm'
           always-auth: true
 
+      - name: Use latest npm
+        run: |
+          npm -v
+          npm i -g npm@latest
+          npm -v
+
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
