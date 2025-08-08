@@ -34,8 +34,6 @@ jobs:
           npm -v
           npm i -g npm@latest
           npm -v
-          # Clean any leftover config from prior runs
-          npm config delete always-auth || true
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
@@ -43,10 +41,6 @@ jobs:
       - name: Release (semantic-release with OIDC)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
-          # Explicitly unset token-based auth to force OIDC Trusted Publishing
-          NODE_AUTH_TOKEN: ''
-          NPM_TOKEN: ''
         run: npm publish
 
       - name: Verify npm publish via OIDC
