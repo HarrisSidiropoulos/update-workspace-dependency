@@ -34,11 +34,13 @@ jobs:
           npm -v
           npm i -g npm@latest
           npm -v
+          # Clean any leftover config from prior runs
+          npm config delete always-auth || true
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Release
+      - name: Release (semantic-release with OIDC)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
