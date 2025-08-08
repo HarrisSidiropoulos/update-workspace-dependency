@@ -1,6 +1,6 @@
 {
   "name": "update-workspace-dependency",
-  "version": "1.0.14",
+  "version": "1.0.1",
   "description": "A command-line utility to update a specified dependency or devDependency across all workspaces in an npm monorepo.",
   "main": "index.js",
   "bin": {

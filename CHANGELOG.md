@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v1.0.0...v1.0.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* Revert version number to 1.0.14 in package.json ([6f0c350](https://github.com/HarrisSidiropoulos/update-workspace-dependency/commit/6f0c350b755f2210a45dc0cbc50aa073e89b6b21))
+
 # 1.0.0 (2025-08-08)
 
 
