@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "semantic-release"
   },
   "author": "Harris Sidiropoulos",
   "license": "ISC",
@@ -37,6 +38,54 @@
     "eslint-plugin-sonarjs": "^0.19.0",
     "eslint-plugin-unicorn": "^46.0.0",
     "eslint-plugin-yml": "^1.5.0",
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.7",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/github": "^10.0.0",
+    "@semantic-release/npm": "^11.0.0",
+    "@semantic-release/release-notes-generator": "^14.0.0",
+    "semantic-release": "^23.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": true
+        }
+      ],
+      "@semantic-release/github",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "package-lock.json",
+            "npm-shrinkwrap.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
   }
 }
