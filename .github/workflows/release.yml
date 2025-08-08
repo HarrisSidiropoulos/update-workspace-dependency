@@ -15,11 +15,6 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
 
     steps:
       - name: Checkout
@@ -39,17 +34,21 @@ jobs:
           npm -v
           npm i -g npm@latest
           npm -v
+          npm config delete always-auth || true
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Release (semantic-release with OIDC)
+      - name: Publish to npm (OIDC test)
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+          NPM_CONFIG_PROVENANCE: true
+          # Explicitly unset token-based auth to force OIDC Trusted Publishing
+          NODE_AUTH_TOKEN: ''
+          NPM_TOKEN: ''
+        run: |
+          npm publish --access public
 
       - name: Verify npm publish via OIDC
         if: failure()
         run: |
-          echo "If publish failed, ensure this repo is configured as an npm Trusted Publisher (OIDC) and the package name is owned or pre-authorized."
+          echo "If publish failed, ensure this repo is configured as an npm Trusted Publisher (OIDC), the workflow path matches in npm settings, and the package is owned or pre-authorized."
