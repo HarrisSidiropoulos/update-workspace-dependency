@@ -39,30 +39,14 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Check npm OIDC auth
+      - name: Release (semantic-release with OIDC)
         env:
-          NPM_CONFIG_PROVENANCE: true
-          NODE_AUTH_TOKEN: ''
-          NPM_TOKEN: ''
-        run: |
-          echo "node: $(node -v)"
-          echo "npm: $(npm -v)"
-          echo "registry: $(npm config get registry)"
-          echo "Attempting npm whoami via OIDC..."
-          if npm whoami --registry=https://registry.npmjs.org; then
-            echo "Authenticated to npm via OIDC."
-          else
-            echo "Not authenticated to npm. Ensure Trusted Publishing is configured (repo, branch, workflow path) and package is pre-authorized."
-          fi
-
-      - name: Publish to npm (OIDC test)
-        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
           # Explicitly unset token-based auth to force OIDC Trusted Publishing
           NODE_AUTH_TOKEN: ''
           NPM_TOKEN: ''
-        run: |
-          npm publish --access public
+        run: npx semantic-release
 
       - name: Verify npm publish via OIDC
         if: failure()
