@@ -33,7 +33,7 @@
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/git": "^10.0.0",
     "@semantic-release/github": "^10.0.0",
-    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/npm": "^13.0.0-alpha.14",
     "@semantic-release/release-notes-generator": "^14.0.0",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
@@ -45,7 +45,7 @@
     "eslint-plugin-unicorn": "^46.0.0",
     "eslint-plugin-yml": "^1.5.0",
     "prettier": "^2.8.7",
-    "semantic-release": "^24.2.7"
+    "semantic-release": "^25.0.0-alpha.6"
   },
   "engines": {
     "node": ">=18"
