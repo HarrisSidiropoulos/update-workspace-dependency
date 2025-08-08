@@ -40,6 +40,15 @@ jobs:
           npm i -g npm@latest
           npm -v
 
+      - name: Check if running on GitHub-hosted runner
+        run: |
+          if [ -z "$RUNNER_TRACKING_ID" ]; then
+            echo "Running on self-hosted runner"
+            exit 1
+          else
+            echo "Running on GitHub-hosted runner"
+          fi
+
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
