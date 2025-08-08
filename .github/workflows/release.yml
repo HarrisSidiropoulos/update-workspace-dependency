@@ -28,6 +28,7 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
+          always-auth: true
 
       - name: Install dependencies
         run: npm ci || npm i --no-fund --no-audit
@@ -36,7 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # Not required with OIDC, but semantic-release needs it
         run: npx semantic-release
 
       - name: Verify npm publish via OIDC
