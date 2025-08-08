@@ -39,6 +39,22 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Check npm OIDC auth
+        env:
+          NPM_CONFIG_PROVENANCE: true
+          NODE_AUTH_TOKEN: ''
+          NPM_TOKEN: ''
+        run: |
+          echo "node: $(node -v)"
+          echo "npm: $(npm -v)"
+          echo "registry: $(npm config get registry)"
+          echo "Attempting npm whoami via OIDC..."
+          if npm whoami --registry=https://registry.npmjs.org; then
+            echo "Authenticated to npm via OIDC."
+          else
+            echo "Not authenticated to npm. Ensure Trusted Publishing is configured (repo, branch, workflow path) and package is pre-authorized."
+          fi
+
       - name: Publish to npm (OIDC test)
         env:
           NPM_CONFIG_PROVENANCE: true
