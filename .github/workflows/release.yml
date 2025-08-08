@@ -41,7 +41,8 @@ jobs:
       - name: Release (semantic-release with OIDC)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm publish
+        run: |
+          npx semantic-release
 
       - name: Verify npm publish via OIDC
         if: failure()
