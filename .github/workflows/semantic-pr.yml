@@ -17,4 +17,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # Defaults validate Conventional Commits types/scopes/subject.
-        # Configure via `.github/semantic.yml` if you need custom types or scopes.
