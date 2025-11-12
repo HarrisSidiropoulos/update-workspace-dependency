@@ -4,7 +4,7 @@ A command-line utility to update a specified dependency or devDependency across 
 
 ## Prerequisites
 
-This script requires Node.js and npm to be installed.
+This script requires Node.js and npm to be installed
 
 ## Usage
 
