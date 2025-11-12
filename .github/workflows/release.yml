@@ -39,7 +39,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
-        run: npx semantic-release
+        run: exit 1 # Intentionally breaking the CI
 
       - name: Verify npm publish via OIDC
         if: failure()
