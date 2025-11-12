@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v3.0.0...v4.0.0) (2025-11-12)
+
+
+### chore
+
+* remove conventional-changelog-conventionalcommits dependency ([#10](https://github.com/HarrisSidiropoulos/update-workspace-dependency/issues/10)) ([576b218](https://github.com/HarrisSidiropoulos/update-workspace-dependency/commit/576b218d2bfb0366f5b83c44ce276245d1b4a549))
+
+
+### BREAKING CHANGES
+
+* Test breaking CI
+
 # [3.0.0](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v2.0.0...v3.0.0) (2025-11-12)
 
 
