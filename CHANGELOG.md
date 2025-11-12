@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v1.0.17...v1.0.18) (2025-11-12)
+
+
+### Bug Fixes
+
+* update branch name from master to main in release configuration ([d4866c0](https://github.com/HarrisSidiropoulos/update-workspace-dependency/commit/d4866c0ac13da08c45113745a6ce046228e3e765))
+
 ## [1.0.17](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v1.0.16...v1.0.17) (2025-10-20)
 
 
