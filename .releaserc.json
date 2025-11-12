@@ -5,14 +5,18 @@
       "@semantic-release/commit-analyzer",
       {
         "preset": "conventionalcommits",
-        "presetConfig": {}
+        "presetConfig": {
+          "bumpStrict": false
+        }
       }
     ],
     [
       "@semantic-release/release-notes-generator",
       {
         "preset": "conventionalcommits",
-        "presetConfig": {}
+        "presetConfig": {
+          "bumpStrict": false
+        }
       }
     ],
     [
