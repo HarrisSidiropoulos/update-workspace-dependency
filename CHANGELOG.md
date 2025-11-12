@@ -1,3 +1,13 @@
+# [3.0.0](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v2.0.0...v3.0.0) (2025-11-12)
+
+
+* feat!: breaking change release ([#9](https://github.com/HarrisSidiropoulos/update-workspace-dependency/issues/9)) ([6bd1a26](https://github.com/HarrisSidiropoulos/update-workspace-dependency/commit/6bd1a26302bb218ccdadf95e001c22522d8b5522))
+
+
+### BREAKING CHANGES
+
+* Test major release
+
 # [2.0.0](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v1.1.0...v2.0.0) (2025-11-12)
 
 
