@@ -1,3 +1,17 @@
+# [5.0.0](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v4.0.0...v5.0.0) (2025-11-12)
+
+
+### Bug Fixes
+
+* intentionally break CI for testing semantic-release integration ([#11](https://github.com/HarrisSidiropoulos/update-workspace-dependency/issues/11)) ([dd892cc](https://github.com/HarrisSidiropoulos/update-workspace-dependency/commit/dd892cce89212193e450d537c65c5da471b593a4))
+* restore semantic-release execution in CI workflow ([#12](https://github.com/HarrisSidiropoulos/update-workspace-dependency/issues/12)) ([22bab24](https://github.com/HarrisSidiropoulos/update-workspace-dependency/commit/22bab245ba86565336763b53c23fc3da9e4353b7))
+
+
+### BREAKING CHANGES
+
+* restore semantic-release execution
+* intentionally break CI for testing semantic-release integration
+
 # [4.0.0](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v3.0.0...v4.0.0) (2025-11-12)
 
 
