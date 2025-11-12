@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v1.0.18...v1.1.0) (2025-11-12)
+
+
+### Features
+
+* test minor release ([49c6583](https://github.com/HarrisSidiropoulos/update-workspace-dependency/commit/49c65833bacbfca0025303866e75bfc7b53047c5))
+
 ## [1.0.18](https://github.com/HarrisSidiropoulos/update-workspace-dependency/compare/v1.0.17...v1.0.18) (2025-11-12)
 
 
